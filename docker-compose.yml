@@ -1,0 +1,56 @@
+networks:
+  app-network:
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:15.3
+    networks:
+      - app-network
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${PGUSER}
+      - POSTGRES_PASSWORD=${PGPASSWORD}
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  pgAdmin:
+    container_name: pg_admin
+    image: dpage/pgadmin4:8.11
+    networks:
+      - app-network
+    ports:
+      - "2000:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_LISTEN_ADDRESS=0.0.0.0
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+  backend:
+    container_name: backend
+    build: ./backend
+    networks:
+      - app-network
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_URL=postgres://${PGUSER}:${PGPASSWORD}@postgres:5432/${PGDATABASE}
+      - PGUSER=${PGUSER}
+      - PGPASSWORD=${PGPASSWORD}
+      - PGHOST=${PGHOST}
+      - PGPORT=${PGPORT}
+      - PGDATABASE=${PGDATABASE}
+    depends_on:
+      - postgres
+  frontend:
+    container_name: frontend
+    build: .
+    networks:
+      - app-network
+    ports:
+      - "5173:5173"
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:3001
+
+volumes:
+  pgdata:
+    

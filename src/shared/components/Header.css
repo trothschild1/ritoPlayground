@@ -1,0 +1,29 @@
+.header {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 16px;
+  background-color: #5b5bd6;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100px;
+  position: relative;
+  align-items: center;
+}
+
+.home-button {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.home-button:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.home-icon {
+  stroke-width: 1.5;
+  color: #ffffff;
+}

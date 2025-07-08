@@ -65,4 +65,7 @@ https://developer.riotgames.com/
 [NestJs backend](https://docs.nestjs.com/first-steps)\
 [React](https://github.com/flashohq/open-source-react-courses?tab=readme-ov-file)\
 [CompSci Huge](https://github.com/ossu/computer-science?tab=readme-ov-file)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4290c7b0 (initial commit)

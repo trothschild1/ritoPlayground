@@ -1,0 +1,22 @@
+.search {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 5px;
+}
+
+.splash {
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+}
+
+.champion-name-title {
+  padding: 1em;
+}
+
+.champion-title {
+  color: grey;
+}
