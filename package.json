@@ -9,8 +9,9 @@
     "build": "next build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "docker-up": "docker-compose up --build",
-    "docker-down": "docker-compose down"
+    "docker-up": "docker-compose up",
+    "docker-down": "docker-compose down",
+    "docker-build": "docker-compose build frontend backend"
   },
   "dependencies": {
     "@radix-ui/themes": "^3.2.1",

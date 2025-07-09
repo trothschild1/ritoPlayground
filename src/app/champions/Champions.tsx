@@ -12,7 +12,7 @@ import "../styles/index.css";
 import { useGetAllSpells } from "./hooks/useGetAllSpells";
 import { ChampionSpellTable } from "./components/Spells";
 import "./champions.css";
-import { useGetBaseStats } from "./hooks/useGetBaseStats";
+// import { useGetBaseStats } from "./hooks/useGetBaseStats";
 
 const page = "Champions";
 
@@ -21,7 +21,7 @@ export const Champions = () => {
 
   const champions = useGetAllChampions();
   const spells = useGetAllSpells(selected ? selected.name : "");
-  const stats = useGetBaseStats(selected ? selected.name : "");
+  // const stats = useGetBaseStats(selected ? selected.name : "");
 
   return (
     <>
