@@ -44,6 +44,8 @@ services:
   frontend:
     container_name: frontend
     build: .
+    volumes:
+      - .:/my-app
     networks:
       - app-network
     ports:
