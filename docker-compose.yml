@@ -41,6 +41,8 @@ services:
       - PGDATABASE=${PGDATABASE}
     depends_on:
       - postgres
+    volumes:
+      - ./backend:/my-app
   frontend:
     container_name: frontend
     build: .
