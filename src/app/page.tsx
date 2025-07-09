@@ -15,6 +15,11 @@ const LEAGUE = [
     name: "Skins",
     route: "/skins",
     description: "View all the skins"
+  },
+  {
+    name: "Stats",
+    route: "/stats",
+    description: "See all champs base & scaling stats"
   }
 ];
 

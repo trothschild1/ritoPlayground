@@ -12,7 +12,6 @@ import "../styles/index.css";
 import { useGetAllSpells } from "./hooks/useGetAllSpells";
 import { ChampionSpellTable } from "./components/Spells";
 import "./champions.css";
-import { ChampStats } from "./components/Stats";
 import { useGetBaseStats } from "./hooks/useGetBaseStats";
 
 const page = "Champions";
@@ -58,7 +57,6 @@ export const Champions = () => {
             alt={selected.name}
           />
         )}
-        <ChampStats data={stats} />
       </Flex>
       {/* Spell table */}
       <ChampionSpellTable data={spells} />
