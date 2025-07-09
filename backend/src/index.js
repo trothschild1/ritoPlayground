@@ -32,7 +32,7 @@ app.get("/get-all/augments", async (req, res) => {
 app.get("/get-all/champions", async (req, res) => {
   try {
     const result = await pool.query(
-      "SELECT c.name, i.image_splash, title FROM champion c JOIN champion_image i ON c.id=i.champion_id"
+      "SELECT c.name, i.image_splash, title FROM champion c JOIN champion_image i ON c.id=i.champion_id JOIN champion_tag t ON t.champion_id=c.champion_id"
     );
     res.json(result.rows);
   } catch (error) {
@@ -46,8 +46,8 @@ app.get("/get-all/skin-by-champion", async (req, res) => {
 
   try {
     const queryText = `
-    SELECT champion_id as champion, name, (champion_id || '_' || num || '.jpg') as full_splash FROM skin
-    ${champion ? "WHERE champion_id = $1" : ""}
+    SELECT champion_id as champion, name, (t.champion_id || '_' || num || '.jpg') AS full_splash FROM skin s JOIN champion_tag t ON t.champion_id=s.champion_id
+    ${champion ? "WHERE t.tag = $1" : ""}
     `;
     const queryValues = champion ? [champion] : [];
 
@@ -62,8 +62,8 @@ app.get("/get-all/skin-by-champion", async (req, res) => {
 app.get("/get-all/spell-by-champion", async (req, res) => {
   const { champion } = req.query;
   try {
-    const queryText = `SELECT champion_id as champion, id, name, description, cooldown, cost, image_full from spell
-    ${champion ? "WHERE champion_id = $1" : ""}
+    const queryText = `SELECT t.tag as champion, id, name, description, cooldown, cost, image_full FROM spell s JOIN champion_tag t ON t.champion_id=s.champion_id
+    ${champion ? "WHERE t.tag = $1" : ""}
     `;
     const queryValues = champion ? [champion] : [];
 
@@ -77,9 +77,10 @@ app.get("/get-all/spell-by-champion", async (req, res) => {
 
 app.get("/get-all/stats-by-champion", async (req, res) => {
   const { champion } = req.query;
+
   try {
-    const queryText = `SELECT champion_id as champion, hp, mp, movespeed, armor, spellblock, hpregen, attackdamage, attackspeed FROM champion_stats
-    ${champion ? "WHERE champion_id = $1" : ""}
+    const queryText = `SELECT t.tag AS champion, hp, mp, movespeed, armor, spellblock, hpregen, attackdamage, attackspeed FROM champion_stats s JOIN champion_tag t ON t.champion_id=s.champion_id
+    ${champion ? "WHERE t.tag = $1" : ""}
     `;
     const queryValues = champion ? [champion] : [];
 
@@ -93,7 +94,9 @@ app.get("/get-all/stats-by-champion", async (req, res) => {
 
 app.get("/get-all/stats", async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM champion_stats");
+    const result = await pool.query(
+      "SELECT t.tag, s.* FROM champion_stats s JOIN champion_tag t ON t.champion_id=s.champion_id"
+    );
     res.json(result.rows);
   } catch (error) {
     console.error(error);
