@@ -12,7 +12,6 @@ import "../styles/index.css";
 import { useGetAllSpells } from "./hooks/useGetAllSpells";
 import { ChampionSpellTable } from "./components/Spells";
 import "./champions.css";
-// import { useGetBaseStats } from "./hooks/useGetBaseStats";
 
 const page = "Champions";
 
@@ -20,8 +19,7 @@ export const Champions = () => {
   const [selected, setSelected] = useState<Champion>();
 
   const champions = useGetAllChampions();
-  const spells = useGetAllSpells(selected ? selected.name : "");
-  // const stats = useGetBaseStats(selected ? selected.name : "");
+  const spells = useGetAllSpells(selected ? selected.id : "");
 
   return (
     <>
@@ -33,7 +31,7 @@ export const Champions = () => {
           data={champions}
           getOptionLabel={(champions) => champions.name}
           onSelect={(value) => {
-            // add error handling if a champ is undefined
+            // TODO: add error handling if a champ is undefined
             const champ = champions.find((c) => c.name === value);
             setSelected(champ);
           }}

@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 
 export type Spells = {
     champion: string,
-    id: string,
-    name: string,
+    spell_id: string,
+    spell_name: string,
     description: string,
     cooldown: string[],
     cost: string[],

@@ -2,8 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export type Champion = {
-    name: string,
+    id: string,
     image_splash: string,
+    name: string,
+    tag: string,
     title: string
 }
 

@@ -17,16 +17,16 @@ export const ChampionSpellTable = ({ data }: { data: Spells[] }) => {
       </Table.Header>
       <Table.Body>
         {data.map((item) => (
-          <Table.Row key={item.name}>
+          <Table.Row key={item.spell_id}>
             <Table.RowHeaderCell>
               <img
                 src={`/spell/${item.image_full}`}
-                alt={item.name}
+                alt={item.spell_name}
                 width={42}
                 height={42}
               />
             </Table.RowHeaderCell>
-            <Table.Cell width="200px">{item.name}</Table.Cell>
+            <Table.Cell width="200px">{item.spell_name}</Table.Cell>
             <Table.Cell>{item.description}</Table.Cell>
             <Table.Cell width="200px">{item.cooldown.join(", ")}</Table.Cell>
             <Table.Cell width="200px">{item.cost.join(", ")}</Table.Cell>
