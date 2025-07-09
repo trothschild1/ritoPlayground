@@ -42,7 +42,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ./backend:/my-app
+      - ./backend:/my-app/backend
   frontend:
     container_name: frontend
     build: .

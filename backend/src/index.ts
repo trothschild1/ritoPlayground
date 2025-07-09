@@ -1,7 +1,8 @@
-const express = require("express");
+import express, { Request, Response } from "express";
+import cors from "cors";
+import pool from "./db"
+
 const app = express();
-const pool = require("./db");
-const cors = require("cors");
 const corsOptions = {
   origin: ["http://localhost:5173"]
 };
@@ -17,7 +18,7 @@ const corsOptions = {
 app.use(express.json());
 app.use(cors(corsOptions));
 
-app.get("/get-all/items", async (req, res) => {
+app.get("/get-all/items", async (req: Request, res: Response) => {
   try {
     const result = await pool.query("SELECT item_id, name FROM tft_items");
     res.json(result.rows);
@@ -27,7 +28,7 @@ app.get("/get-all/items", async (req, res) => {
   }
 });
 
-app.get("/get-all/augments", async (req, res) => {
+app.get("/get-all/augments", async (req: Request, res: Response) => {
   try {
     const result = await pool.query("SELECT * FROM tft_augments");
     res.json(result.rows);
@@ -37,10 +38,10 @@ app.get("/get-all/augments", async (req, res) => {
   }
 });
 
-app.get("/get-all/champions", async (req, res) => {
+app.get("/get-all/champions", async (req: Request, res: Response) => {
   try {
     const result = await pool.query(
-      "SELECT id, name, title, tag, image_splash FROM champion"
+      "SELECT id, name, title, tag, image_splash FROM champion ORDER BY id ASC"
     );
     res.json(result.rows);
   } catch (error) {
@@ -49,7 +50,7 @@ app.get("/get-all/champions", async (req, res) => {
   }
 });
 
-app.get("/get-all/skin-by-champion", async (req, res) => {
+app.get("/get-all/skin-by-champion", async (req: Request, res: Response) => {
   const { champion } = req.query;
 
   try {
@@ -67,7 +68,7 @@ app.get("/get-all/skin-by-champion", async (req, res) => {
   }
 });
 
-app.get("/get-all/spell-by-champion", async (req, res) => {
+app.get("/get-all/spell-by-champion", async (req: Request, res: Response) => {
   const { champion } = req.query;
   try {
     const queryText = `SELECT ch.id as champion, s.id as spell_id, s.name as spell_name, description, cooldown, cost, s.image_full FROM spell s JOIN champion ch ON ch.id=s.champion_id
@@ -83,14 +84,14 @@ app.get("/get-all/spell-by-champion", async (req, res) => {
   }
 });
 
-app.get("/get-all/stats-by-champion", async (req, res) => {
+app.get("/get-all/stats-by-champion", async (req: Request, res: Response) => {
   const { champion } = req.query;
 
   try {
     let queryText = `SELECT ch.id AS champion, hp, mp, movespeed, armor, spellblock, hpregen, attackdamage, attackspeed FROM champion_stats s JOIN champion ch ON ch.id=s.champion_id
     `;
 
-    const queryValues = [];
+    const queryValues: string[] = [];
 
     if (champion) {
       queryText += ` WHERE ch.id ILIKE $1`;
@@ -104,7 +105,7 @@ app.get("/get-all/stats-by-champion", async (req, res) => {
   }
 });
 
-app.get("/get-all/stats", async (req, res) => {
+app.get("/get-all/stats", async (req: Request, res: Response) => {
   try {
     const result = await pool.query(
       "SELECT ch.id, s.* FROM champion_stats s JOIN champion ch ON ch.id=s.champion_id"
