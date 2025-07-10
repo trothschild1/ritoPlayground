@@ -15,6 +15,8 @@
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 4px;
+  width: 100%;
+  text-align: center;
 }
 
 .dropdown-item:hover {
