@@ -25,6 +25,3 @@ dist
 *.njsproj
 *.sln
 *.sw?
-
-# Ignore the entire dragontail-15.13.1 directory
-src/dragontail-15.13.1/
