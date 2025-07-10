@@ -1,5 +1,7 @@
 import { Table } from "@radix-ui/themes";
 import { ChampionStats } from "../hooks/useGetAllChampionStats";
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const columns: { key: keyof ChampionStats; label: string }[] = [
   { key: "champion_id", label: "Champion" },
@@ -26,20 +28,59 @@ const columns: { key: keyof ChampionStats; label: string }[] = [
 ];
 
 export const StatsTable = ({ data }: { data: ChampionStats[] }) => {
+  const [sortConfig, setSortConfig] = useState<{
+    key: keyof ChampionStats;
+    direction: "asc" | "desc";
+  } | null>({
+    key: "champion_id",
+    direction: "asc"
+  });
+
+  // log(n) operation
+  const sortedData = [...data].sort((a, b) => {
+    if (!sortConfig) return 0;
+
+    const aValue = a[sortConfig.key];
+    const bValue = b[sortConfig.key];
+
+    if (aValue < bValue) return sortConfig.direction === "asc" ? -1 : 1;
+    if (aValue > bValue) return sortConfig.direction === "asc" ? 1 : -1;
+    console.log(sortConfig.direction);
+    return 0;
+  });
+
+  const handleSort = (key: keyof ChampionStats) => {
+    setSortConfig((prev) =>
+      prev?.key === key
+        ? { key, direction: prev.direction === "asc" ? "desc" : "asc" }
+        : { key, direction: "asc" }
+    );
+  };
+
   return (
     <Table.Root>
       <Table.Header>
         <Table.Row>
           <Table.ColumnHeaderCell>Icon</Table.ColumnHeaderCell>
           {columns.map((col) => (
-            <Table.ColumnHeaderCell key={col.key}>
+            <Table.ColumnHeaderCell
+              key={col.key}
+              onClick={() => handleSort(col.key)}
+              className="column-cell"
+            >
               {col.label}
+              {sortConfig?.key === col.key &&
+                (sortConfig.direction === "asc" ? (
+                  <ChevronDown />
+                ) : (
+                  <ChevronUp />
+                ))}
             </Table.ColumnHeaderCell>
           ))}
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {data.map((item) => (
+        {sortedData.map((item) => (
           <Table.Row key={item.champion_id}>
             <Table.RowHeaderCell>
               <img
