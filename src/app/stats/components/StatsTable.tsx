@@ -1,7 +1,7 @@
-import { Table } from "@radix-ui/themes";
+import { Flex, Table } from "@radix-ui/themes";
 import { ChampionStats } from "../hooks/useGetAllChampionStats";
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import "./StatsTable.css";
 
 const columns: { key: keyof ChampionStats; label: string }[] = [
   { key: "champion_id", label: "Champion" },
@@ -66,15 +66,12 @@ export const StatsTable = ({ data }: { data: ChampionStats[] }) => {
             <Table.ColumnHeaderCell
               key={col.key}
               onClick={() => handleSort(col.key)}
-              className="column-cell"
             >
-              {col.label}
-              {sortConfig?.key === col.key &&
-                (sortConfig.direction === "asc" ? (
-                  <ChevronDown />
-                ) : (
-                  <ChevronUp />
-                ))}
+              <Flex className="column-header">
+                {col.label}
+                {sortConfig?.key === col.key &&
+                  (sortConfig.direction === "asc" ? "▲" : "▼")}
+              </Flex>
             </Table.ColumnHeaderCell>
           ))}
         </Table.Row>
@@ -91,7 +88,7 @@ export const StatsTable = ({ data }: { data: ChampionStats[] }) => {
               />
             </Table.RowHeaderCell>
             {columns.map((col) => (
-              <Table.Cell key={col.key} width="200px">
+              <Table.Cell key={col.key} width="250px">
                 {item[col.key]}
               </Table.Cell>
             ))}

@@ -1,3 +1,6 @@
-.column-cell {
+.column-header {
   flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
 }
