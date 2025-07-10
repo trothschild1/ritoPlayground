@@ -41,7 +41,14 @@ export const StatsTable = ({ data }: { data: ChampionStats[] }) => {
       <Table.Body>
         {data.map((item) => (
           <Table.Row key={item.champion_id}>
-            <Table.RowHeaderCell>icon</Table.RowHeaderCell>
+            <Table.RowHeaderCell>
+              <img
+                src={`/tiles/${item.image_splash}`}
+                alt={item.champion_id}
+                width={40}
+                height={40}
+              />
+            </Table.RowHeaderCell>
             {columns.map((col) => (
               <Table.Cell key={col.key} width="200px">
                 {item[col.key]}

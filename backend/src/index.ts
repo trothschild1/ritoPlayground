@@ -108,7 +108,7 @@ app.get("/get-all/stats-by-champion", async (req: Request, res: Response) => {
 app.get("/get-all/stats", async (req: Request, res: Response) => {
   try {
     const result = await pool.query(
-      "SELECT ch.id, s.* FROM champion_stats s JOIN champion ch ON ch.id=s.champion_id"
+      "SELECT ch.id, ch.image_splash, s.* FROM champion_stats s JOIN champion ch ON ch.id=s.champion_id"
     );
     res.json(result.rows);
   } catch (error) {

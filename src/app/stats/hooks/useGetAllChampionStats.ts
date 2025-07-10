@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export type ChampionStats = {
+    id: string;
+    image_splash: string;
     champion_id: string;
     hp: number;
     hpperlevel: number;
