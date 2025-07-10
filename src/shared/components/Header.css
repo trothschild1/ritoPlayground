@@ -6,7 +6,8 @@
   background-color: #5b5bd6;
   display: flex;
   justify-content: center;
-  width: 100vw;
+  min-width: 100vw;
+  max-width: auto;
   height: 100px;
   position: relative;
   align-items: center;
