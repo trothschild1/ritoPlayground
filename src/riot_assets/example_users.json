@@ -1,0 +1,99 @@
+{
+    "gameList": [
+        {
+            "gameId": 5310803672,
+            "mapId": 22,
+            "gameMode": "TFT",
+            "gameType": "MATCHED",
+            "gameQueueConfigId": 1100,
+            "participants": [
+                {
+                    "puuid": "8nFtfq5LMmE3ycaVPqiKkpPkZ7PBQ6NsaClUwhDUx2MCfipX68rcMy6ADbX8Aq91hffbl3yYumeRmw",
+                    "summonerId": "opzU5Q6j1mu-gbIpLAdVQP8xH8M_CwZ_nLeVH8qCxIv5jBymNfCwEqLl8A",
+                    "teamId": 100,
+                    "spell1Id": 6,
+                    "spell2Id": 7,
+                    "championId": 145,
+                    "profileIconId": 27,
+                    "riotId": "SetsukosGF#TRASH"
+                },
+                {
+                    "puuid": "Wgl_wHAe12P6WHJXnqZuOIO41WONpyd0krIGa0zvEvWykxuo3Rrqy6RtbkPUrdhiiJpy6L3mP9zh0Q",
+                    "summonerId": "H_KxMSR1K554mWodH1bCutAguBi9PwGn7Y1PkO0ceZHChbI",
+                    "teamId": 100,
+                    "spell1Id": 6,
+                    "spell2Id": 7,
+                    "championId": 145,
+                    "profileIconId": 5583,
+                    "riotId": "fog1999#NA1"
+                },
+                {
+                    "puuid": "G5A3xHk3GVwuHvM3D8epyvbyB-0BrQnF9IQ_S-nV6wyLu7KWE36oBK3ln-U4mLAEnryYZwCTmuPbJw",
+                    "summonerId": "TBORK1O1DG-mjsxoSveWnBrcLnzGtAZsZ_yvt4Q_a_8b9mMXU6dlKUxjWw",
+                    "teamId": 100,
+                    "spell1Id": 6,
+                    "spell2Id": 7,
+                    "championId": 145,
+                    "profileIconId": 29,
+                    "riotId": "Mike Oxmall#jpn"
+                },
+                {
+                    "puuid": "nzE8u97dmAzgMiVTGK5hxXiXgJiCxE09Y_kyT1j_ImEP4QBJksQks0JIwGmERYUReEnANLwf92I-nQ",
+                    "summonerId": "NW9w1NJMM8YSi4YlRl40F36sQni4Tii8gLLmptaA9zK9iPI",
+                    "teamId": 100,
+                    "spell1Id": 6,
+                    "spell2Id": 7,
+                    "championId": 145,
+                    "profileIconId": 523,
+                    "riotId": "Porsche#NA2"
+                },
+                {
+                    "puuid": "5M_ZuLhG9puUYNxAjP93wt03vucentmsFe4ZLgZ6DyGxb0aFK_gXX5a6boKabRHfK7gH5CshVKbydg",
+                    "summonerId": "Zqia2a8-YqRjRWkqpUd9SBQ6TqG3yu-cs-tbtDykN3DD113Cz0qeSH-eGQ",
+                    "teamId": 100,
+                    "spell1Id": 6,
+                    "spell2Id": 7,
+                    "championId": 145,
+                    "profileIconId": 6503,
+                    "riotId": "FREE JlZZRAEL#JlZZ"
+                },
+                {
+                    "puuid": "vBcVBEOlzpZI_C9tDVKrxQUjTxPc0KrN_XiPlTcGBLcMFpPYI5UQDsoJ7HQLgpBtu9JCFn-Uc_t_dQ",
+                    "summonerId": "yVXXaye9MbEcQEeGtCUG_VO8CyEfIhPND289xVxUlyXuH9Q",
+                    "teamId": 100,
+                    "spell1Id": 6,
+                    "spell2Id": 7,
+                    "championId": 145,
+                    "profileIconId": 6383,
+                    "riotId": "chtxgz#NA1"
+                },
+                {
+                    "puuid": "n5-Fj5YZIWXx51YbsupUSoRb-1Gfv3utGjV3Mi3tKY05YEXBJelqxSocKIlgmmvRAfnDe1eoZ-c02g",
+                    "summonerId": "065Qg89RmtnQTZXZkpmjm3Xh1h3m6B0t3o-wxdgUdctaPX0cjjKIXb5Scw",
+                    "teamId": 100,
+                    "spell1Id": 6,
+                    "spell2Id": 7,
+                    "championId": 145,
+                    "profileIconId": 0,
+                    "riotId": "Matty T Ice#NA1"
+                },
+                {
+                    "puuid": "Fi5hvPS7j8fHikgnCVmU2SkryocDe5rtgMBwyo6QYxJB1YrsPzOMcYEfo4rceV2A_g7A2jhPWjHKFw",
+                    "summonerId": "JA_AiLqHT3GXIzV1sht1TEktOB68T8JKfphVakNXFEvinAj-",
+                    "teamId": 100,
+                    "spell1Id": 6,
+                    "spell2Id": 7,
+                    "championId": 145,
+                    "profileIconId": 6860,
+                    "riotId": "mimitaya#blush"
+                }
+            ],
+            "observers": {
+                "encryptionKey": "PLXb2Bz+llJJcPaA5dO8kH/ud/TLp2P9"
+            },
+            "platformId": "NA1",
+            "bannedChampions": [],
+            "gameLength": 294
+        }
+    ]
+}
