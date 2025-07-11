@@ -1,22 +1,22 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Button, Flex } from "@radix-ui/themes";
 import { ChevronDown } from "lucide-react";
-import "./SearchBar.css";
+import "./DropDown.css";
 import { FixedSizeList as List } from "react-window";
 
-type SearchBarProps<T> = {
+type DropDownProps<T> = {
   data: T[];
   displayName: string;
   getOptionLabel: (item: T) => string;
   onSelect: (value: string) => void;
 };
 
-export const SearchBar = <T,>({
+export const DropDown = <T,>({
   data,
   displayName,
   getOptionLabel,
   onSelect
-}: SearchBarProps<T>) => {
+}: DropDownProps<T>) => {
   return (
     <Flex gap="3" align="center" className="dropdown-scroll-container">
       <DropdownMenu.Root>
@@ -51,16 +51,6 @@ export const SearchBar = <T,>({
                   </Flex>
                 );
               }}
-
-              {/* {data.map((item) => (
-                <DropdownMenu.Item
-                  key={getOptionLabel(item)}
-                  onSelect={() => onSelect(getOptionLabel(item))}
-                  className="dropdown-item"
-                >
-                  {getOptionLabel(item)}
-                </DropdownMenu.Item>
-              ))} */}
             </List>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>

@@ -4,7 +4,7 @@ import {
   Champion,
   useGetAllChampions
 } from "../../shared/hooks/useGetAllChampions";
-import { SearchBar } from "../../shared/components/SearchBar";
+import { DropDown } from "../../shared/components/DropDown";
 import { useState } from "react";
 import { Header } from "../../shared/components/Header";
 import { Text, Flex } from "@radix-ui/themes";
@@ -26,7 +26,7 @@ export const Champions = () => {
       <Header page={page} />
       {/* Search bar */}
       <Flex align="center" className="search">
-        <SearchBar
+        <DropDown
           displayName="Select a champion..."
           data={champions}
           getOptionLabel={(champions) => champions.name}

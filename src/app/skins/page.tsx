@@ -3,7 +3,7 @@
 import { Flex } from "@radix-ui/themes";
 import { Header } from "../../shared/components/Header";
 import { useGetAllChampions } from "../../shared/hooks/useGetAllChampions";
-import { SearchBar } from "../../shared/components/SearchBar";
+import { DropDown } from "../../shared/components/DropDown";
 import { useState } from "react";
 import "../styles/index.css";
 
@@ -23,7 +23,7 @@ export default function SkinsPage() {
     <>
       <Header page={page} />
       <Flex className="search">
-        <SearchBar
+        <DropDown
           data={champions}
           displayName="Select a champion..."
           getOptionLabel={(champions) => champions.name}
