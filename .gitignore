@@ -26,3 +26,4 @@ dist
 *.sln
 *.sw?
 .venv/
+./src/riot_assets/
