@@ -58,43 +58,45 @@ export const StatsTable = ({ data }: { data: ChampionStats[] }) => {
   };
 
   return (
-    <Table.Root>
-      <Table.Header>
-        <Table.Row>
-          <Table.ColumnHeaderCell>Icon</Table.ColumnHeaderCell>
-          {columns.map((col) => (
-            <Table.ColumnHeaderCell
-              key={col.key}
-              onClick={() => handleSort(col.key)}
-            >
-              <Flex className="column-header">
-                {col.label}
-                {sortConfig?.key === col.key &&
-                  (sortConfig.direction === "asc" ? "▲" : "▼")}
-              </Flex>
-            </Table.ColumnHeaderCell>
-          ))}
-        </Table.Row>
-      </Table.Header>
-      <Table.Body>
-        {sortedData.map((item) => (
-          <Table.Row key={item.champion_id}>
-            <Table.RowHeaderCell>
-              <img
-                src={`/tiles/${item.image_splash}`}
-                alt={item.champion_id}
-                width={40}
-                height={40}
-              />
-            </Table.RowHeaderCell>
+    <>
+      <Table.Root>
+        <Table.Header>
+          <Table.Row>
+            <Table.ColumnHeaderCell>Icon</Table.ColumnHeaderCell>
             {columns.map((col) => (
-              <Table.Cell key={col.key} width="250px">
-                {item[col.key]}
-              </Table.Cell>
+              <Table.ColumnHeaderCell
+                key={col.key}
+                onClick={() => handleSort(col.key)}
+              >
+                <Flex className="column-header">
+                  {col.label}
+                  {sortConfig?.key === col.key &&
+                    (sortConfig.direction === "asc" ? "▲" : "▼")}
+                </Flex>
+              </Table.ColumnHeaderCell>
             ))}
           </Table.Row>
-        ))}
-      </Table.Body>
-    </Table.Root>
+        </Table.Header>
+        <Table.Body>
+          {sortedData.map((item) => (
+            <Table.Row key={item.champion_id}>
+              <Table.RowHeaderCell>
+                <img
+                  src={`/tiles/${item.image_splash}`}
+                  alt={item.champion_id}
+                  width={40}
+                  height={40}
+                />
+              </Table.RowHeaderCell>
+              {columns.map((col) => (
+                <Table.Cell key={col.key} width="250px">
+                  {item[col.key]}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table.Root>
+    </>
   );
 };
