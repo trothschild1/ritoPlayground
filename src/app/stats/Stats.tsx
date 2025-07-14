@@ -5,45 +5,56 @@ import { Header } from "../../shared/components/Header";
 import { InputField } from "./components/InputField";
 import { StatsTable } from "./components/StatsTable";
 import { useGetAllChampionStats } from "./hooks/useGetAllChampionStats";
-import { Flex } from "@radix-ui/themes";
+import { Button, Flex } from "@radix-ui/themes";
+import "./Stats.css";
 
 const page = "Stats";
 
 export const Stats = () => {
   const [championValue, setChampionValue] = useState("");
-  const [statValue, setStatValue] = useState("");
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const stats = useGetAllChampionStats();
 
-  // TODO:
-  // 1.) Debounce and/or separate out into different components
-  // -- Problem --> Stats manages the state and gets rerendered on each keystroke causing noticable type latency
-  // 2.) Search doesn't do anything ATM
-  // -- Have it filter the rows if entered (champs) and/or columns (stats) if entered
+  // Trigger filter when Enter is pressed
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      console.log("Champ: ", championValue);
-      console.log("Stat: ", statValue);
+      const newFilters: string[] = [];
+      if (championValue.trim()) {
+        newFilters.push(championValue.trim());
+        setChampionValue("");
+      }
+      if (newFilters.length > 0) {
+        setActiveFilters((prev) => [...prev, ...newFilters]);
+      }
     }
   };
+
+  // Fuzzy match filter stats object
+  const filteredData = stats.filter((item) => {
+    if (activeFilters.length === 0) return true;
+
+    return activeFilters.some((filter) =>
+      Object.values(item).some((val) =>
+        String(val).toLowerCase().includes(filter.toLowerCase())
+      )
+    );
+  });
 
   return (
     <>
       <Header page={page} />
-      <Flex>
+      <Flex className="search-area">
         <InputField
           placeholder="a champion"
           value={championValue}
           onChange={setChampionValue}
           onKeyDown={handleKeyDown}
         />
-        <InputField
-          placeholder="a stat"
-          value={statValue}
-          onChange={setStatValue}
-          onKeyDown={handleKeyDown}
-        />
+        <Button className="reset-button" onClick={() => setActiveFilters([])}>
+          Reset
+        </Button>
       </Flex>
-      <StatsTable data={stats} />
+      <StatsTable data={filteredData} />
     </>
   );
 };
