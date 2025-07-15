@@ -18,7 +18,6 @@ export const useGetAllChampions = () => {
                 `http://localhost:3001/get-all/champions`
             );
             setData(response.data);
-            console.log(response.data.slice(0, 5));
         };
         getChampions();
     }, []);
