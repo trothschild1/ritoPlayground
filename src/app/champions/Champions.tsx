@@ -11,7 +11,7 @@ import { Text, Flex } from "@radix-ui/themes";
 import "../styles/index.css";
 import { useGetAllSpells } from "./hooks/useGetAllSpells";
 import { ChampionSpellTable } from "./components/Spells";
-import "./champions.css";
+import "./Champions.css";
 
 const page = "Champions";
 

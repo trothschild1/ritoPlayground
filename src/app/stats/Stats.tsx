@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Header } from "../../shared/components/Header";
 import { InputField } from "./components/InputField";
 import { StatsTable } from "./components/StatsTable";
@@ -8,9 +9,11 @@ import { useGetAllChampionStats } from "./hooks/useGetAllChampionStats";
 import { Button, Flex } from "@radix-ui/themes";
 import "./Stats.css";
 
-const page = "Stats";
-
 export const Stats = () => {
+  const pathname = usePathname();
+  const routeName = pathname.split("/").pop() || "stats";
+  const page = routeName.charAt(0).toUpperCase() + routeName.slice(1);
+
   const [championValue, setChampionValue] = useState("");
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const stats = useGetAllChampionStats();
