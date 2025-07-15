@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Header } from "../../shared/components/Header";
 import { InputField } from "./components/InputField";
 import { StatsTable } from "./components/StatsTable";
-import { useGetAllChampionStats } from "./hooks/useGetAllChampionStats";
+import { useGetAllChampionStats } from "../../shared/hooks/useGetStats";
 import { Button, Flex } from "@radix-ui/themes";
 import "./Stats.css";
 

@@ -88,7 +88,7 @@ app.get("/get-all/stats-by-champion", async (req: Request, res: Response) => {
   const { champion } = req.query;
 
   try {
-    let queryText = `SELECT ch.id AS champion, hp, mp, movespeed, armor, spellblock, hpregen, attackdamage, attackspeed FROM champion_stats s JOIN champion ch ON ch.id=s.champion_id
+    let queryText = `SELECT ch.id AS champion, s.* FROM champion_stats s JOIN champion ch ON ch.id=s.champion_id
     `;
 
     const queryValues: string[] = [];

@@ -1,5 +1,5 @@
 import { Flex, Table } from "@radix-ui/themes";
-import { ChampionStats } from "../hooks/useGetAllChampionStats";
+import { ChampionStats } from "../../../shared/hooks/useGetStats";
 import { useState } from "react";
 import "./StatsTable.css";
 

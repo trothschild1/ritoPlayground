@@ -36,10 +36,27 @@ export const useGetAllChampionStats = () => {
                 `http://localhost:3001/get-all/stats`
             );
             setData(response.data);
-            console.log(response.data.slice(0, 5));
         };
         getStats();
     }, []);
+
+    return data;
+}
+
+export const useGetStatsByChamps = (champions: string[]) => {
+    const [data, setData] = useState<ChampionStats[]>([])
+
+    useEffect(() => {
+        if (!champions.length) return;
+
+        const getStats = async () => {
+            const responses = champions.map((champ) =>
+                axios.get(`http://localhost:3001/get-all/stats-by-champion?champion=${champ}`));
+            const results = await Promise.all(responses);
+            setData(results.map((response) => response.data[0]));
+        }
+        getStats();
+    }, [champions]);
 
     return data;
 }
