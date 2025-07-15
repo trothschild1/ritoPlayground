@@ -8,7 +8,7 @@ export const Header = () => {
   // Derive the page name from the current route
   // Might break once I start adding subroutes, but fine for now
   const pathname = usePathname();
-  const routeName = pathname.split("/").pop() || "Route Not Found";
+  const routeName = pathname.split("/").pop() || "Home";
   const page = routeName.charAt(0).toUpperCase() + routeName.slice(1);
 
   return (

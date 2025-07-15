@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Header } from "../shared/components/Header";
 import { Flex } from "@radix-ui/themes";
@@ -10,19 +12,19 @@ const LEAGUE = [
     description: "Find champion stats and abilities"
   },
   {
-    name: "Skins",
-    route: "/skins",
-    description: "View all the skins"
+    name: "Compare",
+    route: "/compare",
+    description: "Compare up to 4 champions"
   },
+  // {
+  //   name: "Skins",
+  //   route: "/skins",
+  //   description: "View all the skins"
+  // },
   {
     name: "Stats",
     route: "/stats",
     description: "See all champs base & scaling stats"
-  },
-  {
-    name: "Compare",
-    route: "/compare",
-    description: "Compare up to 4 champions"
   }
 ];
 
