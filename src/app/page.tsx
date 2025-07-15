@@ -3,8 +3,6 @@ import { Header } from "../shared/components/Header";
 import { Flex } from "@radix-ui/themes";
 import "./styles/index.css";
 
-const page = "Home";
-
 const LEAGUE = [
   {
     name: "Champions",
@@ -31,7 +29,7 @@ const LEAGUE = [
 export default function HomePage() {
   return (
     <>
-      <Header page={page} />
+      <Header />
       <Flex className="link-list">
         {LEAGUE.map((item) => (
           <Link key={item.route} href={item.route} className="league-link">

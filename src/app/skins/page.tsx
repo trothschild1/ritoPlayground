@@ -6,8 +6,6 @@ import { useGetAllChampions } from "../../shared/hooks/useGetAllChampions";
 import { DropDown } from "../../shared/components/DropDown";
 import { useState } from "react";
 import "../styles/index.css";
-
-const page = "Skins";
 /* TODO
   1. Write custom hook to get the skins for a given champ. 
     Use /get-all/skins-by-champion
@@ -21,7 +19,7 @@ export default function SkinsPage() {
 
   return (
     <>
-      <Header page={page} />
+      <Header />
       <Flex className="search">
         <DropDown
           data={champions}

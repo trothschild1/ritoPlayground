@@ -13,8 +13,6 @@ import { useGetAllSpells } from "./hooks/useGetAllSpells";
 import { ChampionSpellTable } from "./components/Spells";
 import "./Champions.css";
 
-const page = "Champions";
-
 export const Champions = () => {
   const [selected, setSelected] = useState<Champion>();
 
@@ -23,7 +21,7 @@ export const Champions = () => {
 
   return (
     <>
-      <Header page={page} />
+      <Header />
       {/* Search bar */}
       <Flex align="center" className="search">
         <DropDown
