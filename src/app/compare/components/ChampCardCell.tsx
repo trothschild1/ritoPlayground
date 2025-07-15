@@ -1,9 +1,9 @@
 import { Card, Flex, Text } from "@radix-ui/themes";
 import { CirclePlus } from "lucide-react";
 import React from "react";
-import "./ChampCard.css";
+import "./ChampCardCell.css";
 
-export const ChampCard = ({
+export const ChampCardCell = ({
   id,
   name,
   image_splash,

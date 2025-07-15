@@ -1,0 +1,11 @@
+.grid-area {
+  height: 700px;
+  width: 100%;
+  --gap: 12px;
+  display: flex;
+}
+
+.grid-item {
+  padding: calc(var(--gap) / 2);
+  box-sizing: border-box;
+}
