@@ -47,9 +47,13 @@ const Cell = memo(
     columnIndex: number;
     rowIndex: number;
     style: React.CSSProperties;
-    data: { champs: any[]; columnCount: number };
+    data: {
+      champs: any[];
+      columnCount: number;
+      handleAddChamp: (id: string) => void;
+    };
   }) => {
-    const { champs, columnCount } = data;
+    const { champs, columnCount, handleAddChamp } = data;
     const index = rowIndex * columnCount + columnIndex;
     const champ = champs[index];
 
@@ -64,13 +68,14 @@ const Cell = memo(
           image_splash={champ.image_splash}
           height={40}
           width={40}
+          onClick={handleAddChamp}
         />
       </Box>
     );
   }
 );
 
-export const ChampGrid = () => {
+export const ChampGrid = ({ onClick }: { onClick: (id: string) => void }) => {
   const champs = useGetAllChampions();
   const columnCount = useResponsiveColumns(ITEM_WIDTH);
   const rowCount = Math.ceil(champs.length / columnCount);
@@ -85,7 +90,7 @@ export const ChampGrid = () => {
         rowCount={rowCount}
         rowHeight={ITEM_HEIGHT}
         width={gridWidth}
-        itemData={{ champs, columnCount }}
+        itemData={{ champs, columnCount, handleAddChamp: onClick }}
       >
         {Cell}
       </Grid>

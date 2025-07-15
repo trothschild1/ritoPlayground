@@ -9,7 +9,8 @@ export const ChampCardCell = ({
   image_splash,
   title,
   height,
-  width
+  width,
+  onClick
 }: {
   id: string;
   name: string;
@@ -17,9 +18,10 @@ export const ChampCardCell = ({
   title?: string;
   height: number;
   width: number;
+  onClick?: (id: string) => void;
 }) => {
   return (
-    <Card key={id} className="card">
+    <Card key={id} className="card" onClick={() => onClick?.(id)}>
       <Flex align="center" gap="2">
         <img
           className="card-icon"
