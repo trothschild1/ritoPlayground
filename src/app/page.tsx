@@ -20,6 +20,11 @@ const LEAGUE = [
     name: "Stats",
     route: "/stats",
     description: "See all champs base & scaling stats"
+  },
+  {
+    name: "Compare",
+    route: "/compare",
+    description: "Compare up to 4 champions"
   }
 ];
 
