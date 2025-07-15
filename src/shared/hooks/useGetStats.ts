@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export type ChampionStats = {
     id: string;
     image_splash: string;
+    champion: string;
     champion_id: string;
     hp: number;
     hpperlevel: number;
@@ -56,6 +57,7 @@ export const useGetStatsByChamps = (champions: string[]) => {
             setData(results.map((response) => response.data[0]));
         }
         getStats();
+        console.log(data)
     }, [champions]);
 
     return data;
