@@ -1,3 +1,5 @@
+@use "./variables.scss" as *;
+
 :root {
   font-family: Inter, sans-serif;
   line-height: 1.5;
@@ -5,7 +7,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #444444;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,7 +16,7 @@
 
 a {
   font-weight: 500;
-  color: #ffffff;
+  color: $text-color;
   text-decoration: inherit;
 }
 
@@ -91,5 +92,5 @@ button:focus-visible {
 }
 
 .custom-theme {
-  --color-background: #252424;
+  background-color: $background-color;
 }

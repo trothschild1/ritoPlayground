@@ -1,4 +1,4 @@
-import "../styles/index.css";
+// import "../styles/index.scss";
 import { Compare } from "./Compare";
 
 export default function ComparePage() {

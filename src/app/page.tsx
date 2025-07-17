@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Header } from "../shared/components/Header";
 import { Flex } from "@radix-ui/themes";
-import "./styles/index.css";
+import "./styles/index.scss";
 
 const LEAGUE = [
   {

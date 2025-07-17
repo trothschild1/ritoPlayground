@@ -8,7 +8,7 @@ import { DropDown } from "../../shared/components/DropDown";
 import { useState } from "react";
 import { Header } from "../../shared/components/Header";
 import { Text, Flex } from "@radix-ui/themes";
-import "../styles/index.css";
+import "../styles/index.scss";
 import { useGetAllSpells } from "./hooks/useGetAllSpells";
 import { ChampionSpellTable } from "./components/Spells";
 import "./Champions.css";
