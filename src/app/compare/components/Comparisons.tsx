@@ -1,10 +1,15 @@
+"use client";
+
 import { Flex, Section } from "@radix-ui/themes";
 import React from "react";
+import { CompareCard } from "./CompareCard";
 
-export const Comparisons = () => {
+export const Comparisons = ({ champList }: { champList: string[] }) => {
   return (
-    <Section className="comparison-area">
-      <Flex>This is where comparisons go...</Flex>
+    <Section>
+      <Flex>
+        <CompareCard data={champList} />
+      </Flex>
     </Section>
   );
 };

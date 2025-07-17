@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { Header } from "../../shared/components/Header";
-import { ChampGrid } from "./components/ChampGrid";
 import { Comparisons } from "./components/Comparisons";
 import { Button } from "@radix-ui/themes";
+import ChampGridV2 from "./components/ChampGridV2";
 
 export const Compare = () => {
   const [champList, setChampList] = useState<string[]>([]);
@@ -13,7 +13,7 @@ export const Compare = () => {
     setChampList((prev) => {
       if (prev.includes(id) || prev.length >= 4) return prev;
       const updated = [...prev, id];
-      console.log("champList:", updated);
+      // console.log("champList:", updated);
       return updated;
     });
   };
@@ -23,7 +23,7 @@ export const Compare = () => {
       <Header />
       <Comparisons champList={champList} />
       <Button onClick={() => setChampList([])}>Reset</Button>
-      <ChampGrid onClick={handleAddChamp} />
+      <ChampGridV2 onClick={handleAddChamp} />
     </>
   );
 };

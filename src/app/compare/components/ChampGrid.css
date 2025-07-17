@@ -1,11 +1,48 @@
 .grid-area {
-  height: 700px;
-  width: 100%;
-  --gap: 12px;
+  width: 500px;
+  --gap: 3px;
   display: flex;
+  border-style: solid;
+  padding: 4px;
 }
 
 .grid-item {
   padding: calc(var(--gap) / 2);
   box-sizing: border-box;
+}
+
+.card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.card-name {
+  flex: 1;
+  font-size: 6;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+.card-add-icon {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.card:hover .card-add-icon {
+  opacity: 1;
 }
