@@ -36,8 +36,7 @@ export const StatsTable = ({ data }: { data: ChampionStats[] }) => {
     direction: "asc"
   });
 
-  // log(n) operation
-  const sortedData = [...data].sort((a, b) => {
+  const sortedData = data.sort((a, b) => {
     if (!sortConfig) return 0;
 
     const aValue = a[sortConfig.key];
