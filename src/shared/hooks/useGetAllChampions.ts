@@ -21,7 +21,7 @@ export const useGetAllChampions = () => {
         };
         getChampions();
     }, []);
-    console.log("useGetAllChampions:", data.slice(0, 2));
+    // console.log("useGetAllChampions:", data.slice(0, 5));
 
     return data;
 }
