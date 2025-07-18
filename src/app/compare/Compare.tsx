@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Header } from "../../shared/components/Header";
 import { Comparisons } from "./components/Comparisons";
-import { Button } from "@radix-ui/themes";
-import ChampGridV2 from "./components/ChampGrid";
+import { Button, Flex } from "@radix-ui/themes";
+import ChampGrid from "./components/ChampGrid";
 import { InputField } from "../../shared/components/InputField";
 import { useGetAllChampions } from "../../shared/hooks/useGetAllChampions";
 
@@ -18,7 +18,6 @@ export const Compare = () => {
     setChampList((prev) => {
       if (prev.includes(id) || prev.length >= 4) return prev;
       const updated = [...prev, id];
-      // console.log("champList:", updated);
       return updated;
     });
   };
@@ -55,8 +54,11 @@ export const Compare = () => {
         onChange={setChampionValue}
         onKeyDown={handleKeyDown}
       />
-      <Button onClick={() => setChampList([])}>Reset</Button>
-      <ChampGridV2 data={filteredData} onClick={handleAddChamp} />
+      <Flex>
+        <Button onClick={() => setChampList([])}>Reset Comparisons</Button>
+        <Button onClick={() => setActiveFilters([])}>Clear Search</Button>
+      </Flex>
+      <ChampGrid data={filteredData} onClick={handleAddChamp} />
     </>
   );
 };

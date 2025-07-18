@@ -1,7 +1,7 @@
 "use client";
 
 import { Champion } from "../../../shared/hooks/useGetAllChampions";
-import { Grid, Text, Flex } from "@radix-ui/themes";
+import { Grid, Text, Flex, Box } from "@radix-ui/themes";
 import "./ChampGrid.css";
 
 const ChampCardCell = ({
@@ -16,7 +16,7 @@ const ChampCardCell = ({
   onClick?: (id: string) => void;
 }) => {
   return (
-    <Flex className="card" onClick={() => onClick?.(data.id)}>
+    <Box className="card" onClick={() => onClick?.(data.id)}>
       <img
         className="card-icon"
         src={`/tiles/${data.image_splash}`}
@@ -25,11 +25,11 @@ const ChampCardCell = ({
         width={width}
       />
       <Text className="card-name">{data.name}</Text>
-    </Flex>
+    </Box>
   );
 };
 
-const ChampGridV2 = ({
+const ChampGrid = ({
   onClick,
   data
 }: {
@@ -53,4 +53,4 @@ const ChampGridV2 = ({
   );
 };
 
-export default ChampGridV2;
+export default ChampGrid;

@@ -1,0 +1,10 @@
+@use "../../app/styles/variables.scss" as *;
+
+.input-field {
+  min-width: 300px;
+  max-width: 400px;
+  flex: 1;
+  background-color: $background-color;
+  color: $text-color;
+  border: 1px solid $light-grey;
+}

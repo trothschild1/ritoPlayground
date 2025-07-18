@@ -1,6 +1,6 @@
 import { Box, TextField } from "@radix-ui/themes";
 import { Search } from "lucide-react";
-import "./InputField.css";
+import "./InputField.scss";
 
 type InputFieldProps = {
   placeholder: string;

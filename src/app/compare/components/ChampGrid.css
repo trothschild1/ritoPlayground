@@ -29,7 +29,7 @@
 }
 .card-name {
   flex: 1;
-  font-size: 6;
+  font-size: 4;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
