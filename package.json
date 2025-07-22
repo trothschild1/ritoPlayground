@@ -23,6 +23,7 @@
     "radix-ui": "^1.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
     "react-select": "^5.10.2",
     "react-window": "^1.8.11",
     "sass": "^1.89.2"
