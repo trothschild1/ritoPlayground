@@ -1,0 +1,9 @@
+.search-area {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+.search-buttons {
+  margin-top: 5px;
+  gap: 5px;
+}

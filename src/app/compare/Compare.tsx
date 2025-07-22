@@ -7,6 +7,7 @@ import { Button, Flex } from "@radix-ui/themes";
 import ChampGrid from "./components/ChampGrid";
 import { InputField } from "../../shared/components/InputField";
 import { useGetAllChampions } from "../../shared/hooks/useGetAllChampions";
+import "./Compare.css";
 
 export const Compare = () => {
   const [champList, setChampList] = useState<string[]>([]);
@@ -38,9 +39,7 @@ export const Compare = () => {
     if (activeFilters.length === 0) return true;
 
     return activeFilters.some((filter) =>
-      Object.values(item).some((val) =>
-        String(val).toLowerCase().includes(filter.toLowerCase())
-      )
+      item.id.toLowerCase().includes(filter.toLowerCase())
     );
   });
 
@@ -48,15 +47,17 @@ export const Compare = () => {
     <>
       <Header />
       <Comparisons champList={champList} />
-      <InputField
-        placeholder="a champion"
-        value={championValue}
-        onChange={setChampionValue}
-        onKeyDown={handleKeyDown}
-      />
-      <Flex>
-        <Button onClick={() => setChampList([])}>Reset Comparisons</Button>
-        <Button onClick={() => setActiveFilters([])}>Clear Search</Button>
+      <Flex className="search-area">
+        <InputField
+          placeholder="a champion"
+          value={championValue}
+          onChange={setChampionValue}
+          onKeyDown={handleKeyDown}
+        />
+        <Flex className="search-buttons">
+          <Button onClick={() => setChampList([])}>Reset Comparisons</Button>
+          <Button onClick={() => setActiveFilters([])}>Clear Search</Button>
+        </Flex>
       </Flex>
       <ChampGrid data={filteredData} onClick={handleAddChamp} />
     </>

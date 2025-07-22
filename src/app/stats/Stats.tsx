@@ -49,7 +49,7 @@ export const Stats = () => {
           onKeyDown={handleKeyDown}
         />
         <Button className="reset-button" onClick={() => setActiveFilters([])}>
-          Reset
+          Clear Search
         </Button>
       </Flex>
       <StatsTable data={filteredData} />

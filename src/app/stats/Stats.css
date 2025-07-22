@@ -1,4 +1,11 @@
 .search-area {
   gap: 0.5em;
   padding: 1em;
+  display: flex;
+}
+
+.reset-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
 }
